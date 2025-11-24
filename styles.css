@@ -71,6 +71,7 @@ button:hover {
   align-items: center;
 }
 
+/* Cards/telas */
 .card, .workout-card {
   background: rgba(24, 24, 24, 0.96);
   border-radius: 22px;
@@ -116,6 +117,7 @@ input:focus {
   outline: none;
 }
 
+/* Dashboard visual */
 .dashboard-title {
   color: orange;
   font-size: 2em;
@@ -127,13 +129,11 @@ input:focus {
   gap: 14px;
   justify-content: center;
 }
-
 .icone-barbell {
   font-size: 2em;
   color: #ff9500;
   filter: drop-shadow(0 2px 8px #ff950055);
 }
-
 .treinos-lista {
   display: grid;
   grid-template-columns: 1fr;
@@ -141,6 +141,7 @@ input:focus {
   width: 100%;
 }
 
+/* Cards de treino com ícones grandes, animados */
 .workout-card {
   background: linear-gradient(120deg, #181818 70%, #ff9900 160%);
   border-radius: 18px;
@@ -189,6 +190,22 @@ input:focus {
   border-radius: 8px;
   box-shadow: 0 2px 12px #ff950033;
   border: none;
+}
+
+/* Ícone vídeo animado */
+.video-icon, .icon-video {
+  font-size: 1.5em;
+  margin-left: 12px;
+  color: #ff9500;
+  cursor: pointer;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: transform 0.17s, color 0.16s;
+}
+.video-icon:hover .icon-video {
+  color: #ffa733;
+  transform: scale(1.17) rotate(-6deg);
+  filter: drop-shadow(0 0 8px #ff950088);
 }
 
 .card h3 {
