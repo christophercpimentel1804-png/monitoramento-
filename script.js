@@ -1,9 +1,26 @@
 let usuarios = []; // [{user: 'nome', pass: 'senha'}]
 let isAdmin = false;
+
+// Exercícios já com links para vídeos curtos de execução correta
 const treinoDeHoje = [
-  { nome: 'Supino Reto Barra', series: 4, reps: 8 },
-  { nome: 'Agachamento Livre', series: 4, reps: 12 },
-  { nome: 'Remada Curvada', series: 3, reps: 10 }
+  {
+    nome: 'Supino Reto Barra',
+    series: 4,
+    reps: 8,
+    video: 'https://www.youtube.com/watch?v=7FZ0XnOZzfQ' // ~20s
+  },
+  {
+    nome: 'Agachamento Livre',
+    series: 4,
+    reps: 12,
+    video: 'https://www.youtube.com/watch?v=rMvwVtlqjTE'
+  },
+  {
+    nome: 'Remada Curvada',
+    series: 3,
+    reps: 10,
+    video: 'https://www.youtube.com/watch?v=aNjc4z6ihgs'
+  }
 ];
 
 function renderInicio() {
@@ -91,6 +108,9 @@ function renderDashboard(username) {
             <h3>
               <span class="exercise-icon">💪</span>
               ${ex.nome}
+              <a href="${ex.video}" class="video-icon" title="Execução Correta" target="_blank">
+                <span class="icon-video">🎬</span>
+              </a>
             </h3>
             <p><span class="exercise-icon">🔢</span> Séries: ${ex.series}</p>
             <p><span class="exercise-icon">🔁</span> Repetições: ${ex.reps}</p>
