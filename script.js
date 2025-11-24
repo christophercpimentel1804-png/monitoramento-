@@ -81,18 +81,26 @@ function login() {
 function renderDashboard(username) {
   document.getElementById('mainContainer').innerHTML = `
     <div class="card">
-      <h2>Meu Treino de Hoje</h2>
-      <div>${treinoDeHoje.map((ex, i) => `
-        <div class="workout-card" id="ex${i}">
-          <h3>${ex.nome}</h3>
-          <p>Séries: ${ex.series}</p>
-          <p>Repetições: ${ex.reps}</p>
-          <button onclick="concluir(${i})">Concluir</button>
-        </div>
-      `).join('')}</div>
+      <div class="dashboard-title">
+        <span class="icone-barbell">🏋️‍♂️</span>
+        Meu Treino de Hoje
+      </div>
+      <div class="treinos-lista">
+        ${treinoDeHoje.map((ex, i) => `
+          <div class="workout-card" id="ex${i}">
+            <h3>
+              <span class="exercise-icon">💪</span>
+              ${ex.nome}
+            </h3>
+            <p><span class="exercise-icon">🔢</span> Séries: ${ex.series}</p>
+            <p><span class="exercise-icon">🔁</span> Repetições: ${ex.reps}</p>
+            <button onclick="concluir(${i})">Concluir</button>
+          </div>
+        `).join('')}
+      </div>
     </div>
     <div class="card chat-box">
-      <h3>Chat com o Coach</h3>
+      <h3><span class="exercise-icon">💬</span> Chat com o Coach</h3>
       <div id="chatMsg"></div>
       <input id="msgInput" placeholder="Digite sua mensagem"/>
       <button onclick="enviarMsg('${username || 'Aluno'}')">Enviar</button>
