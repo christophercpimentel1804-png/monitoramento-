@@ -1,20 +1,17 @@
-// "Banco" simulado em memória
 let usuarios = []; // [{user: 'nome', pass: 'senha'}]
 let isAdmin = false;
-
-// Exemplo de treinos do dia para musculation
 const treinoDeHoje = [
   { nome: 'Supino Reto Barra', series: 4, reps: 8 },
   { nome: 'Agachamento Livre', series: 4, reps: 12 },
   { nome: 'Remada Curvada', series: 3, reps: 10 }
 ];
 
-// TELA INICIAL: cadastro/login
 function renderInicio() {
   document.getElementById('mainContainer').innerHTML = `
     <div class="card">
-      <h2>Bem-vindo ao RepMax!</h2>
-      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+      <h2>RepMax</h2>
+      <div class="slogan">Sua Força no Limite</div>
+      <div class="entrar-cadastrar-buttons">
         <button onclick="renderCadastro()">Cadastrar</button>
         <button onclick="renderLogin(true)">Entrar</button>
       </div>
@@ -23,15 +20,16 @@ function renderInicio() {
   document.getElementById('logoutBtn').classList.add('hide');
 }
 
-// CADASTRO
 function renderCadastro() {
   document.getElementById('mainContainer').innerHTML = `
     <div class="card">
       <h2>Cadastrar</h2>
+      <label for="newuser">Usuário</label>
       <input type="text" id="newuser" placeholder="Nome de usuário"/>
+      <label for="newpass">Senha</label>
       <input type="password" id="newpass" placeholder="Senha"/>
       <button onclick="cadastrar()">Cadastrar</button>
-      <button onclick="renderInicio()">Voltar</button>
+      <button onclick="renderInicio()" style="background:#242c2d; color:#fff;font-size:1em;">Voltar</button>
     </div>
   `;
 }
@@ -46,15 +44,16 @@ function cadastrar() {
   renderInicio();
 }
 
-// LOGIN
 function renderLogin(showBackBtn) {
   document.getElementById('mainContainer').innerHTML = `
     <div class="card">
       <h2>Login</h2>
+      <label for="user">Usuário</label>
       <input type="text" id="user" placeholder="Nome de usuário"/>
+      <label for="pass">Senha</label>
       <input type="password" id="pass" placeholder="Senha"/>
       <button onclick="login()">Entrar</button>
-      ${showBackBtn ? '<button onclick="renderInicio()">Voltar</button>' : ''}
+      ${showBackBtn ? '<button onclick="renderInicio()" style="background:#242c2d; color:#fff;font-size:1em;">Voltar</button>' : ''}
     </div>
   `;
   document.getElementById('logoutBtn').classList.add('hide');
@@ -63,7 +62,6 @@ function renderLogin(showBackBtn) {
 function login() {
   const user = document.getElementById('user').value;
   const pass = document.getElementById('pass').value;
-  // admin/admin acessa admin
   if (user === 'admin' && pass === 'admin') {
     isAdmin = true;
     renderAdmin();
@@ -80,7 +78,6 @@ function login() {
   }
 }
 
-// DASHBOARD DO CLIENTE
 function renderDashboard(username) {
   document.getElementById('mainContainer').innerHTML = `
     <div class="card">
@@ -109,7 +106,6 @@ function concluir(i) {
   document.getElementById(`ex${i}`).querySelector('button').disabled = true;
 }
 
-// ADMIN
 function renderAdmin() {
   document.getElementById('mainContainer').innerHTML = `
     <div class="card">
@@ -123,7 +119,6 @@ function renderAdmin() {
   `;
 }
 
-// CHAT SIMPLES
 function enviarMsg(user) {
   const msg = document.getElementById('msgInput').value;
   if (!msg) return;
@@ -133,9 +128,7 @@ function enviarMsg(user) {
   chat.scrollTop = chat.scrollHeight;
 }
 
-// LOGOUT
 document.getElementById('logoutBtn').onclick = function() {
   renderInicio();
 };
-
 window.onload = renderInicio;
