@@ -41,6 +41,7 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   text-shadow: 0px 2px 6px #0007;
 }
+
 button {
   background: linear-gradient(90deg, #ff9500 65%, #ff6a00 100%);
   border: none;
@@ -70,7 +71,6 @@ button:hover {
   align-items: center;
 }
 
-/* Cards/telas */
 .card, .workout-card {
   background: rgba(24, 24, 24, 0.96);
   border-radius: 22px;
@@ -116,23 +116,79 @@ input:focus {
   outline: none;
 }
 
-/* Cards de treino */
+.dashboard-title {
+  color: orange;
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-shadow: 0px 4px 20px #000a;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+}
+
+.icone-barbell {
+  font-size: 2em;
+  color: #ff9500;
+  filter: drop-shadow(0 2px 8px #ff950055);
+}
+
+.treinos-lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
 .workout-card {
+  background: linear-gradient(120deg, #181818 70%, #ff9900 160%);
+  border-radius: 18px;
+  box-shadow: 0 6px 32px #0008, 0 3px 18px #ff950025;
+  padding: 24px 22px 18px 22px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  border-left: 4px solid #ff9500;
-  position: relative;
+  align-items: flex-start;
+  transition: box-shadow 0.21s, transform 0.17s;
+  border-left: 6px solid orange;
+  margin-bottom: 4px;
 }
 .workout-card.done {
-  opacity: 0.78;
+  opacity: 0.79;
   background: #261a00;
-  border-left: 4px solid orange;
+  border-left: 6px solid #ffaa33;
+  box-shadow: 0 0px 2px #0005;
+}
+.workout-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+  margin-bottom: 7px;
+  color: orange;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+.exercise-icon {
+  font-size: 1.3em;
+  margin-right: 4px;
+  color: #ffa733;
+}
+.workout-card p {
+  font-size: 1em;
+  margin: 0 0 7px 0;
 }
 .workout-card button {
-  width: 120px;
   align-self: flex-end;
-  margin-top: 12px;
+  background: linear-gradient(90deg, #ff9500 60%, #ff6a00 100%);
+  width: 132px;
+  font-size: 1em;
+  margin-top: 16px;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px #ff950033;
+  border: none;
 }
 
 .card h3 {
@@ -182,4 +238,8 @@ input:focus {
   .logo-img { width: 36px; height: 36px; }
   button { padding: 8px 12px; font-size: 0.92em; }
   .card, .workout-card { padding: 22px;}
+  .dashboard-title { font-size: 1.28em; gap: 10px;}
+  .treinos-lista { gap: 10px; }
+  .workout-card { padding: 15px 6vw; }
+  .workout-card h3 { font-size: 1.08em; }
 }
